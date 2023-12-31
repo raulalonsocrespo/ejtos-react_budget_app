@@ -5,7 +5,11 @@ const Budget = () => {
     const { budget } = useContext(AppContext);
     const [newBudget, setNewBudget] = useState(budget);
     const handleBudgetChange = (event) => {
-        setNewBudget(event.target.value);
+        if(budget > 20000) {
+            alert("The value cannot exceed 20000 funds  £");
+        } else {
+            setNewBudget(event.target.value);
+        }
     }
     return (
 <div className='alert alert-secondary'>
