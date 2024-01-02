@@ -13,19 +13,25 @@ const Currency = () => {
         minHeight: '8.3vh',
         border: 'none',
         fontSize: '14px + 2vmin',
-        color: 'white',
-        paddinRight: '3vh'
+        color: 'white'
+    };
+    const currencyOpt = {
+        minHeight: '4vh',
+        border: '20px solid black',
+        color: 'black',
+        paddingRight: '3vh'
     };
 
     return (
         <div className='currencyHeader' style={currencyBox}>
             <label for="currency">Currency (</label>
             <select id="currency" style={currencySelector}>
-                <option className = 'currencyOpt'>$ Dollar</option>
-                <option className = 'currencyOpt' selected>£ Pound</option>
-                <option className = 'currencyOpt'>€ Euro</option>
-                <option className = 'currencyOpt'>₹ Ruppee</option>
+                <option style={currencyOpt}>$ Dollar</option>
+                <option style={currencyOpt} selected>£ Pound</option>
+                <option style={currencyOpt}>€ Euro</option>
+                <option style={currencyOpt}>₹ Ruppee</option>
             </select>
+            <label for="currency" >)</label>
         </div>
     );
 };
