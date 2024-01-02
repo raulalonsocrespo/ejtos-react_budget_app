@@ -1,4 +1,9 @@
+import React, { useContext, useState } from 'react';
+import { AppContext } from '../context/AppContext';
+
 const Currency = () => {
+    const [currency, setNewCurrency] = useState('');
+
     const currencyBox = {
         backgroundColor: 'rgb(147, 228, 153)',
         minHeight: '8.3vh',
@@ -8,30 +13,30 @@ const Currency = () => {
         color: 'white',
         paddingLeft: '3vh'
     };
+
     const currencySelector = {
-        backgroundColor: 'rgb(147, 228, 153)',
+        background: 'rgb(147, 228, 153)',
         minHeight: '8.3vh',
         border: 'none',
-        fontSize: '14px + 2vmin',
         color: 'white'
     };
+
     const currencyOpt = {
         minHeight: '4vh',
-        border: '20px solid black',
-        color: 'black',
-        paddingRight: '3vh'
+        border: 'none',
+        color: 'black'
     };
 
     return (
         <div className='currencyHeader' style={currencyBox}>
             <label for="currency">Currency (</label>
             <select id="currency" style={currencySelector}>
-                <option style={currencyOpt}>$ Dollar</option>
-                <option style={currencyOpt} selected>£ Pound</option>
-                <option style={currencyOpt}>€ Euro</option>
-                <option style={currencyOpt}>₹ Ruppee</option>
+                <option value="$" style={currencyOpt}>$ Dollar</option>
+                <option value="£" style={currencyOpt} selected>£ Pound</option>
+                <option value="€" style={currencyOpt}>€ Euro</option>
+                <option value="₹" style={currencyOpt}>₹ Ruppee</option>
             </select>
-            <label for="currency" >)</label>
+            <label for="currency">)</label>
         </div>
     );
 };
