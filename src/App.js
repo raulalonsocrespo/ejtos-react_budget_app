@@ -29,7 +29,7 @@ const App = () => {
                         <div className='col-sm'>
                             <ExpenseTotal />
                         </div>
-                        <div className='col-sm' style={{maxWidth: '15vw'}}>
+                        <div className='col-sm'>
                             <Currency />
                         </div>   
                     </div>
