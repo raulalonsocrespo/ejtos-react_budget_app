@@ -7,7 +7,6 @@ const AllocationForm = (props) => {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
-    const [currency, setNewCurrency] = useState('');
 
     const submitEvent = () => {
 
@@ -60,7 +59,7 @@ const AllocationForm = (props) => {
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
 
-                <span for="cost">{currency}</span>
+                
                     <input
                         required='required'
                         type='number'
