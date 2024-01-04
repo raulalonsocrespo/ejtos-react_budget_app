@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, createContext} from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Currency = () => {
@@ -8,7 +8,7 @@ const Currency = () => {
         color: 'white',
         fontSize: '1.2rem',
         borderRadius: '0.375rem',
-        maxWidth: '70%',
+        maxWidth: '73%',
         top: '50%',
         left: '50%',
         padding: '0vh 2vh 0vh 2vh'
@@ -38,6 +38,8 @@ const Currency = () => {
         setCurrency(value);
     };
 
+    let newCurrSymbol = newCurrency.charAt(0);
+
     return (
         <div className='currencyHeader' style={currencyBox}>
             <span>Currency ({newCurrency})</span>
@@ -51,3 +53,21 @@ const Currency = () => {
     );
 };
 export default Currency;
+export const CurrencyContext = createContext();
+export const CurrencyProvider = (props) => {
+    let remaining = 0;
+
+    return (
+        <CurrencyContext.Provider
+            value={{
+                expenses: state.expenses,
+                budget: state.budget,
+                remaining: remaining,
+                dispatch,
+                currency: state.currency
+            }}
+        >
+            {props.children}
+        </CurrencyContext.Provider>
+    );
+};

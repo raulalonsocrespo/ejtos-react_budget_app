@@ -14,6 +14,7 @@ import RemainingBudget from './components/Remaining';
 import Currency from './components/Currency';
 
 import { AppProvider } from './context/AppContext';
+import { CurrencyProvider } from './components/Currency';
 const App = () => {
     return (
         <AppProvider>

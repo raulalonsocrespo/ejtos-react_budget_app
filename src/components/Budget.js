@@ -13,12 +13,10 @@ const Budget = () => {
             alert("The value cannot exceed £" + upper_budget +
                 ", the upper limit for the budget.");
             setNewBudget(upper_budget);
-            return;
         } else if(newBudget < totalExpenses){
             alert("You cannot reduce the budget value lower than the expending, " +
                 "£" + totalExpenses);
             setNewBudget(totalExpenses);
-            return;
         } else {
             setNewBudget(event.target.value);
         }
