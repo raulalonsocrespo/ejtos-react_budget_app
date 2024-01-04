@@ -8,51 +8,45 @@ const Currency = () => {
         color: 'white',
         fontSize: '1.2rem',
         borderRadius: '0.375rem',
-        maxWidth: '100%',
-        borderBottom: '3px solid white',
+        maxWidth: '70%',
+        top: '50%',
+        left: '50%',
         padding: '0vh 2vh 0vh 2vh'
     };
     
     const currencySelector = {
-        backgroundColor: 'rgb(147, 228, 153)',
-        color: 'white',
+        width: '19px',
+        backgroundColor: 'transparent',
         border: 'none',
-        padding: '0vh 0vh 0vh 0vh',
-        textAlign: 'center',
-        display: 'initial'
+        color: 'white',
+        padding: '2vh 0vh 2vh 0vh'
     };
    
     let currencyOpt = {
-        minHeight: '4vh',
-        border: 'none',
-        color: 'black',
+        width:'1000px',
         backgroundColor: 'rgb(147, 228, 153)',
-        width: '2rem',
-        textAlign: 'left'
+        color: 'black',
+        float: 'left',
+        position: 'relative',
+        padding: '1vh 5vh 1vh 3vh'
     };
 
-    const changeBackgroundFormat = (event) => {
-        
-    };
-
-    const [currency, setCurrency] = useState('£ Pound');
+    const { currency } = useContext(AppContext);
+    const [newCurrency, setCurrency] = useState(currency);
 
     const changeCurrency = (value) =>{
         setCurrency(value);
-        document.getElementById('currency').value = ""
     };
 
     return (
         <div className='currencyHeader' style={currencyBox}>
-            <span>Currency ({currency})</span>
-            <div>
-            <select id="currency" style={currencySelector} onChange={(event) => changeCurrency(event.target.value)} onMouseOver={changeBackgroundFormat}>
+            <span>Currency ({newCurrency})</span>
+            <select id="currency" style={currencySelector} onChange={(event) => changeCurrency(event.target.value)}>
                 <option value="$ Dollar" style={currencyOpt}>$ Dollar</option>
                 <option value="£ Pound" style={currencyOpt}>£ Pound</option>
                 <option value="€ Euro" style={currencyOpt}>€ Euro</option>
                 <option value="₹ Ruppee" style={currencyOpt}>₹ Ruppee</option>
             </select>
-            </div>
         </div>
     );
 };
