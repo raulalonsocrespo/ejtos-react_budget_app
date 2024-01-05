@@ -15,7 +15,6 @@ import Currency from './components/Currency';
 
 import { AppProvider } from './context/AppContext';
 
-
 const App = () => {
     return (
         <AppProvider>

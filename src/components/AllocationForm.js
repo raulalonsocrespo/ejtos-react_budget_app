@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
-import { CurrencyProvider, CurrencyContext } from './Currency';
 
 const AllocationForm = (props) => {
     const { dispatch,remaining  } = useContext(AppContext);
@@ -8,8 +7,6 @@ const AllocationForm = (props) => {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
-
-    const { currencySymbol } = useContext(CurrencyContext);
 
     const submitEvent = () => {
 
@@ -37,7 +34,6 @@ const AllocationForm = (props) => {
     };
 
     return (
-        <CurrencyProvider>
         <div>
             <div className='row'>
 
@@ -63,13 +59,13 @@ const AllocationForm = (props) => {
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
 
-                  <span>{currencySymbol}</span>
+                <span style={{marginLeft: '2vw', paddingTop: '1vh'}}>£</span>
                     <input
                         required='required'
                         type='number'
                         id='cost'
                         value={cost}
-                        style={{ marginLeft: '2rem' , size: 10}}
+                        style={{ marginLeft: '0.5rem' , size: 10}}
                         onChange={(event) => setCost(event.target.value)}>
                     </input>
 
@@ -78,9 +74,7 @@ const AllocationForm = (props) => {
                     </button>
                 </div>
                 </div>
-
         </div>
-        </CurrencyProvider>
     );
 };
 
