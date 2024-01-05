@@ -1,19 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
-import { CurrencyContext } from './Currency';
+import { CurrencyProvider, CurrencyContext } from './Currency';
 
 const AllocationForm = (props) => {
     const { dispatch,remaining  } = useContext(AppContext);
-    const { newCurrSymbol  } = useContext(CurrencyContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
 
+    const { currencySymbol } = useContext(CurrencyContext);
+
     const submitEvent = () => {
 
         if(cost > remaining) {
-            alert("The value cannot exceed remaining funds £"+remaining);
+            alert("The value cannot exceed remaining funds £" + remaining);
             setCost("");
             return;
         }
@@ -36,6 +37,7 @@ const AllocationForm = (props) => {
     };
 
     return (
+        <CurrencyProvider>
         <div>
             <div className='row'>
 
@@ -61,7 +63,7 @@ const AllocationForm = (props) => {
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
 
-                  <span>€</span>
+                  <span>{currencySymbol}</span>
                     <input
                         required='required'
                         type='number'
@@ -78,6 +80,7 @@ const AllocationForm = (props) => {
                 </div>
 
         </div>
+        </CurrencyProvider>
     );
 };
 

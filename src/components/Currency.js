@@ -1,7 +1,7 @@
 import React, { useContext, useState, createContext} from 'react';
 import { AppContext } from '../context/AppContext';
 
-const Currency = () => {
+export default function Currency () {
 
     const currencyBox = {
         backgroundColor: 'rgb(147, 228, 153)',
@@ -11,7 +11,8 @@ const Currency = () => {
         maxWidth: '73%',
         top: '50%',
         left: '50%',
-        padding: '0vh 2vh 0vh 2vh'
+        padding: '0vh 2vh 0vh 2vh',
+        textAlign: 'center'
     };
     
     const currencySelector = {
@@ -52,19 +53,15 @@ const Currency = () => {
         </div>
     );
 };
-export default Currency;
+
 export const CurrencyContext = createContext();
+
 export const CurrencyProvider = (props) => {
-    let remaining = 0;
 
     return (
         <CurrencyContext.Provider
             value={{
-                expenses: state.expenses,
-                budget: state.budget,
-                remaining: remaining,
-                dispatch,
-                currency: state.currency
+                currencySymbol: props.newCurrSymbol
             }}
         >
             {props.children}
